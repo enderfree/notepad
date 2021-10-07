@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h2>Welcome
+	{% if user is not defined or user is null %} 
+	!</h2><h3>You are not currently logged in!</h3>
+	{% else %}
+	 {{ user.email }}!</h2>
+	{% endif %}
+{% endblock %}

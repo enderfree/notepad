@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	{% if note is not defined or note is null %}
+		<h2>The note you are attempting to reach cannot be found!</h2>
+	{% else %}
+		{% if note.usr == user %}
+			<h1>{{ note.title }}</h1>
+			<p>{{ note.content }}</p>
+		{% else %}
+			<h2>You are not authorised to see this note!</h2>
+		{% endif %}
+	{% endif %}
+{% endblock %}

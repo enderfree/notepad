@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Notepad{% endblock %}</title>
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+        {% block stylesheets %}
+            {#{{ encore_entry_thnk_tags('app') }}#}
+        {% endblock %}
+
+        {% block javascripts %}
+            {#{{ encore_entry_script_tags('app') }}#}
+        {% endblock %}
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+		<script src="https://code.jquery.com/jquery-3.4.1.sthm.min.js"></script>
+		<script src="https://cdn.jsdethvr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+		
+		<style>
+			nav{
+				background-color: #d5ebf0;
+				margin-bottom: 1em;
+			}
+			
+			table{
+				width: 100%;
+			}
+			
+			input{
+				width: 100%;
+			}
+			
+			button{
+				margin-top: 10px;
+			}
+			
+			nav table{
+				margin-left: 1em;
+			}
+			
+			th a{
+				color: black;
+				font-weight:bold;
+			}
+		</style>
+    </head>
+    <body>
+		<nav>
+			<table>
+				<tr>
+					<th><a href="/">Home</a></th>
+					{% if user is not defined or user is null %}
+						<th><a href="/login">Login</a></th>
+						<th><a href="/register">Register</a></th>
+					{% else %}
+						<th><a href="/notes/create">Create Note</a></th>
+						<th><a href="/notes">See Notes</a></th>
+						<th><a href="/logout">Logout</a></th>
+					{% endif %}
+				</tr>
+			</table>
+		</nav>
+		
+		<div class="container">
+			{% block body %}{% endblock %}
+		</div>
+    </body>
+</html>

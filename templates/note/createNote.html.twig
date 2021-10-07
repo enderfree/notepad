@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+{{ form(form) }}
+{% else %}
+<h1 style="colour:red">ACCESS DENIED</h1>
+{% endif %}
+{% endblock %}

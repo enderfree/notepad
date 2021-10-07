@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<table class="table table-light table-striped">
+	{% for note in notes %}
+		{% if note.usr == user %}
+			<tr>
+				<td><a href="/notes/id/{{ note.id }}">{{ note.title }}</a></td>
+			</tr>
+		{% endif %}
+	{% endfor %}
+</table>
+{% endblock %}
